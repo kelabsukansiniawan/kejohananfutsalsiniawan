@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Borang Penyertaan Pasukan - Kejohanan Futsal Siniawan (Bau Open) 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d2b52;--pitch:#14b85a;--lime:#c6f432;--sun:#ffc300;--fire:#ff4f1f;--sky:#19a7ff;--ink:#14213d;--paper:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--navy);
+background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 60px,transparent 60px 120px)}
+.hero{text-align:center;color:#fff;padding:28px 16px 70px;background:linear-gradient(135deg,var(--pitch),var(--sky));
+clip-path:polygon(0 0,100% 0,100% 86%,50% 100%,0 86%);position:relative}
+.hero img{width:120px;height:120px;object-fit:contain;background:#fff;border-radius:50%;padding:6px;border:5px solid var(--sun);box-shadow:0 6px 0 rgba(0,0,0,.25)}
+.club{margin:10px 0 0;font-weight:800;letter-spacing:.5px}
+h1{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(34px,8vw,64px);line-height:1;margin:10px 0 6px;text-transform:uppercase;
+text-shadow:3px 3px 0 var(--navy),6px 6px 0 var(--fire)}
+.date{display:inline-block;background:var(--sun);color:var(--navy);font-weight:800;padding:8px 18px;border-radius:999px;transform:rotate(-2deg);box-shadow:0 4px 0 var(--navy)}
+.wrap{max-width:860px;margin:-34px auto 40px;padding:0 14px;position:relative}
+.card{background:var(--paper);border-radius:20px;padding:22px;margin-bottom:18px;border-top:8px solid var(--pitch);box-shadow:0 8px 0 rgba(0,0,0,.25)}
+.card:nth-of-type(2){border-color:var(--sun)}.card:nth-of-type(3){border-color:var(--fire)}.card:nth-of-type(4){border-color:var(--sky)}
+h2{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:26px;margin:0 0 14px;color:var(--navy);letter-spacing:.5px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}
+label{display:block;font-weight:800;font-size:14px;margin-bottom:5px}
+input[type=text],input[type=tel],input[type=date],select{width:100%;padding:11px 12px;font:inherit;border:2.5px solid #cfd8e6;border-radius:12px;background:#f7faff}
+input:focus,select:focus{outline:none;border-color:var(--pitch);box-shadow:0 0 0 4px rgba(20,184,90,.25)}
+.req{color:var(--fire)}
+.player{display:grid;grid-template-columns:42px 1fr 90px 150px;gap:10px;align-items:center;padding:10px;border-radius:14px;margin-bottom:8px;background:#f1f6ff}
+.player:nth-child(even){background:#fff8dc}
+.no{font-family:Anton,sans-serif;font-size:22px;color:#fff;background:var(--navy);width:40px;height:40px;border-radius:50%;display:grid;place-items:center}
+.player:first-child .no{background:var(--fire)}
+.hint{font-size:13px;color:#51607a;margin:-6px 0 12px}
+.pledge{background:#eafaf1;border-left:6px solid var(--pitch);padding:12px 14px;border-radius:10px;font-size:15px}
+.check{display:flex;gap:10px;align-items:flex-start;margin:14px 0;font-weight:700}
+.check input{width:22px;height:22px;accent-color:var(--pitch);flex:none;margin-top:2px}
+button{width:100%;font-family:Anton,Impact,sans-serif;font-size:26px;letter-spacing:1px;text-transform:uppercase;color:var(--navy);background:var(--sun);border:0;border-radius:16px;padding:16px;cursor:pointer;box-shadow:0 7px 0 var(--fire);transition:transform .1s,box-shadow .1s}
+button:hover{background:var(--lime)}button:active{transform:translateY(5px);box-shadow:0 2px 0 var(--fire)}
+button:disabled{opacity:.6;cursor:wait}
+button:focus-visible{outline:4px solid #fff}
+.msg{display:none;margin-top:14px;padding:14px;border-radius:12px;font-weight:800;text-align:center}
+.err{background:#ffe3dc;color:#a52200}
+.done{display:none;text-align:center;background:#fff;border-radius:20px;padding:36px 22px;border-top:8px solid var(--pitch);box-shadow:0 8px 0 rgba(0,0,0,.25)}
+.done h2{font-size:40px;color:var(--pitch)}
+.done .ball{font-size:64px;animation:b 1s ease-in-out 3}
+@keyframes b{50%{transform:translateY(-22px) rotate(180deg)}}
+footer{text-align:center;color:#fff;font-weight:700;padding:0 14px 30px;opacity:.85}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.player{grid-template-columns:40px 1fr 80px}.player .pos{grid-column:2/-1}}
+@media(prefers-reduced-motion:reduce){.done .ball{animation:none}button{transition:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <img src="Logo_Kelab_Sukan_Siniawan.png" alt="Logo Kelab Sukan Siniawan" onerror="this.style.display='none'">
+  <p class="club">KELAB SUKAN SINIAWAN</p>
+  <h1>Kejohanan Futsal<br>Siniawan (Bau Open) 2026</h1>
+  <span class="date">5 &amp; 6 Disember 2026</span>
+</header>
+
+<main class="wrap">
+<form id="f" novalidate>
+  <section class="card">
+    <h2>Maklumat Pasukan</h2>
+    <div class="grid">
+      <div class="full"><label for="team">Nama Pasukan <span class="req">*</span></label><input type="text" id="team" required maxlength="60" autocomplete="off"></div>
+      <div><label for="mgr">Nama Pengurus <span class="req">*</span></label><input type="text" id="mgr" required></div>
+      <div><label for="mgrTel">No. Telefon Pengurus <span class="req">*</span></label><input type="tel" id="mgrTel" required inputmode="tel" placeholder="012-3456789"></div>
+      <div><label for="coach">Nama Jurulatih <span class="req">*</span></label><input type="text" id="coach" required></div>
+      <div><label for="coachTel">No. Telefon Jurulatih <span class="req">*</span></label><input type="tel" id="coachTel" required inputmode="tel" placeholder="012-3456789"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Senarai Pemain</h2>
+    <p class="hint">Isi sekurang-kurangnya 5 pemain (maksimum 8). Pemain no. 1 ialah penjaga gol.</p>
+    <div id="players"></div>
+  </section>
+
+  <section class="card">
+    <h2>Pengakuan Pengurus</h2>
+    <p class="pledge">Saya mengesahkan maklumat pemain adalah benar dan semua pemain bersetuju mematuhi undang-undang serta peraturan kejohanan. Saya bertanggungjawab terhadap disiplin pemain dan pegawai pasukan.</p>
+    <label class="check"><input type="checkbox" id="agree"> <span>Saya bersetuju dengan pengakuan di atas. <span class="req">*</span></span></label>
+    <div class="grid">
+      <div><label for="signName">Nama Pengurus (sebagai tandatangan) <span class="req">*</span></label><input type="text" id="signName" required></div>
+      <div><label for="signDate">Tarikh <span class="req">*</span></label><input type="date" id="signDate" required></div>
+    </div>
+  </section>
+
+  <button type="submit" id="btn">Daftar Pasukan!</button>
+  <div class="msg err" id="err" role="alert"></div>
+</form>
+
+<div class="done" id="done" tabindex="-1">
+  <div class="ball">⚽</div>
+  <h2>Pendaftaran Diterima!</h2>
+  <p>Pasukan <strong id="doneTeam"></strong> telah didaftarkan. Pihak penganjur akan menghubungi pengurus untuk pengesahan bayaran dan pengumuman kumpulan.</p>
+  <p><strong>Jumpa anda pada 5 &amp; 6 Disember 2026!</strong></p>
+</div>
+</main>
+<footer>Bersama Kita Hebat, Bersatu Kita Kuat</footer>
+
+<script>
+// ====== TETAPAN: tampal URL Web App Google Apps Script di sini ======
+const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+// ===================================================================
+const MAX = 8, MIN = 5;
+const box = document.getElementById("players");
+for (let i = 1; i <= MAX; i++) {
+  box.insertAdjacentHTML("beforeend", `
+  <div class="player">
+    <div class="no">${i}</div>
+    <div><input type="text" id="pn${i}" placeholder="Nama penuh pemain${i <= MIN ? " *" : ""}" aria-label="Nama penuh pemain ${i}"></div>
+    <div><input type="text" id="pj${i}" placeholder="No. jersi" inputmode="numeric" maxlength="3" aria-label="No. jersi pemain ${i}"></div>
+    <div class="pos"><select id="pp${i}" aria-label="Posisi pemain ${i}">
+      ${i === 1 ? '<option>Penjaga gol</option><option>Pemain</option>' : '<option>Pemain</option><option>Penjaga gol</option>'}
+    </select></div>
+  </div>`);
+}
+document.getElementById("signDate").valueAsDate = new Date();
+
+const f = document.getElementById("f"), err = document.getElementById("err"), btn = document.getElementById("btn");
+const showErr = m => { err.textContent = m; err.style.display = "block"; err.scrollIntoView({behavior:"smooth", block:"center"}); };
+
+f.addEventListener("submit", async e => {
+  e.preventDefault(); err.style.display = "none";
+  const v = id => document.getElementById(id).value.trim();
+  for (const [id, label] of [["team","Nama Pasukan"],["mgr","Nama Pengurus"],["mgrTel","No. Telefon Pengurus"],["coach","Nama Jurulatih"],["coachTel","No. Telefon Jurulatih"],["signName","Nama Pengurus (tandatangan)"],["signDate","Tarikh"]])
+    if (!v(id)) { document.getElementById(id).focus(); return showErr("Sila isi: " + label); }
+
+  const players = [];
+  for (let i = 1; i <= MAX; i++) {
+    const n = v("pn"+i), j = v("pj"+i);
+    if (!n && !j) { if (i <= MIN) { document.getElementById("pn"+i).focus(); return showErr("Sila isi sekurang-kurangnya " + MIN + " pemain."); } continue; }
+    if (!n || !j) { document.getElementById(n ? "pj"+i : "pn"+i).focus(); return showErr("Lengkapkan nama dan no. jersi untuk pemain " + i + "."); }
+    players.push({ name: n, jersey: j, position: v("pp"+i) });
+  }
+  const jerseys = players.map(p => p.jersey);
+  if (new Set(jerseys).size !== jerseys.length) return showErr("No. jersi mesti berbeza bagi setiap pemain.");
+  if (!document.getElementById("agree").checked) return showErr("Sila tandakan kotak pengakuan pengurus.");
+
+  const data = { team: v("team"), manager: v("mgr"), managerTel: v("mgrTel"), coach: v("coach"), coachTel: v("coachTel"),
+                 signName: v("signName"), signDate: v("signDate"), players };
+  btn.disabled = true; btn.textContent = "Menghantar...";
+  try {
+    await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
+    f.style.display = "none";
+    document.getElementById("doneTeam").textContent = data.team;
+    const d = document.getElementById("done"); d.style.display = "block"; d.focus(); window.scrollTo({top:0, behavior:"smooth"});
+  } catch (x) {
+    btn.disabled = false; btn.textContent = "Daftar Pasukan!";
+    showErr("Penghantaran gagal. Semak sambungan internet dan cuba lagi.");
+  }
+});
+</script>
+</body>
+</html>
